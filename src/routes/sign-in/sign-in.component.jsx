@@ -4,11 +4,12 @@ import {
 } from "../../utils/firebase/firebase.utils";
 
 import { createUserDocumentFromAuth } from "../../utils/firebase/firestore-db.utils";
+import SignUpForm from "../../components/sign-up-form/sign-up-form.component";
 
 const SignIn = () => {
-  const loginGoogleUser = async () => {
+  const logInGoogleUser = async () => {
     const { user } = await signInWithGooglePopup();
-    const userDocRef = await createUserDocumentFromAuth(user);
+    await createUserDocumentFromAuth(user);
   };
 
   const SigningOut = async () => await SignOut();
@@ -16,8 +17,9 @@ const SignIn = () => {
   return (
     <div>
       <h1>Sign In Page</h1>
-      <button onClick={loginGoogleUser}>LogIn with Google</button>
-      <button onClick={SigningOut}>LogOut with Google</button>
+      <button onClick={logInGoogleUser}>LogIn with Google</button>
+
+      <SignUpForm />
     </div>
   );
 };
