@@ -4,7 +4,6 @@ import {
   signInWithGooglePopup,
   logInUserWithEmailAndPassword,
 } from "../../utils/firebase/firebase.utils";
-import { createUserDocumentFromAuth } from "../../utils/firebase/firestore-db.utils";
 import FormInput from "../form-input/form-input.component";
 import Button from "../button/button.component";
 
@@ -20,8 +19,7 @@ const LoginForm = () => {
   const { email, password } = formFields;
 
   const logInGoogleUser = async () => {
-    const { user } = await signInWithGooglePopup();
-    await createUserDocumentFromAuth(user);
+    await signInWithGooglePopup();
   };
 
   const changeHandler = (event) => {
@@ -37,8 +35,7 @@ const LoginForm = () => {
     event.preventDefault();
 
     try {
-      const response = await logInUserWithEmailAndPassword(email, password);
-      console.log(response);
+      await logInUserWithEmailAndPassword(email, password);
       resetFormFields();
     } catch (error) {
       switch (error.code) {
@@ -79,13 +76,10 @@ const LoginForm = () => {
         />
 
         <div className="buttons-container">
-          <Button children="Sign In" type="submit" />
-          <Button
-            children="Google LogIn"
-            type="button"
-            buttonType="google"
-            onClick={logInGoogleUser}
-          />
+          <Button type="submit">Sign In</Button>
+          <Button type="button" buttonType="google" onClick={logInGoogleUser}>
+            Google LogIn
+          </Button>
         </div>
       </form>
     </div>

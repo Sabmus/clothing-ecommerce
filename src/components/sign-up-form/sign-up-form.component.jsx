@@ -23,17 +23,19 @@ const SignUpForm = () => {
 
   const submitHandler = async (event) => {
     event.preventDefault();
+
     if (password !== passwordConfirm) {
       alert("passwords do not match");
       return;
     }
 
     try {
-      const response = await createAuthUserWithEmailAndPassword(
+      const { user } = await createAuthUserWithEmailAndPassword(
         email,
         password
       );
-      await createUserDocumentFromAuth(response.user, { displayName });
+
+      await createUserDocumentFromAuth(user, { displayName });
       resetFormFields();
     } catch (error) {
       if (error.code === "auth/email-already-in-use") {
