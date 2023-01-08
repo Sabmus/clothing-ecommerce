@@ -2,6 +2,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { Outlet } from "react-router-dom";
 
 //this need to be fixed, if removed the app crashed due to a firebase error
+// eslint-disable-next-line
 import { SignOutUser } from "../../utils/firebase/firebase.utils";
 
 import CartIcon from "../../components/cart-icon/cart-icon.component";

@@ -15,12 +15,12 @@ import {
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyD7lM8TlHmcOibOW2ypx-feKHhHUrf2A7E",
-  authDomain: "clothing-ecommerce-db-94f43.firebaseapp.com",
-  projectId: "clothing-ecommerce-db-94f43",
-  storageBucket: "clothing-ecommerce-db-94f43.appspot.com",
-  messagingSenderId: "797529112841",
-  appId: "1:797529112841:web:ed75ba5ff3cd0bfbe9d3d8",
+  apiKey: process.env.API_KEY,
+  authDomain: process.env.AUTH_DOMAIN,
+  projectId: process.env.PROJECT_ID,
+  storageBucket: process.env.STORAGE_BUCKET,
+  messagingSenderId: process.env.MESSAGING_SENDER_ID,
+  appId: process.env.APP_ID,
 };
 
 // Initialize Firebase

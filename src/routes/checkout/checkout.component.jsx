@@ -5,6 +5,7 @@ import {
 } from "../../store/cart/cart.selector";
 
 import CartItemCheckout from "../../components/cart-item-checkout/cart-item-checkout.component";
+import PaymentForm from "../../components/payment-form/payment-form.component";
 
 import {
   CheckoutContainer,
@@ -17,6 +18,7 @@ const Checkout = () => {
   const cartItems = useSelector(selectCartItems);
   const cartTotal = useSelector(selectCartTotal);
 
+  console.log(process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY);
   return (
     <CheckoutContainer>
       <CheckoutHeader>
@@ -42,6 +44,7 @@ const Checkout = () => {
       ))}
 
       <Total>Total: ${cartTotal}</Total>
+      <PaymentForm />
     </CheckoutContainer>
   );
 };
