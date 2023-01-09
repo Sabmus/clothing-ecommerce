@@ -18,7 +18,6 @@ const Checkout = () => {
   const cartItems = useSelector(selectCartItems);
   const cartTotal = useSelector(selectCartTotal);
 
-  console.log(process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY);
   return (
     <CheckoutContainer>
       <CheckoutHeader>
