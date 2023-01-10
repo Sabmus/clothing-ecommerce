@@ -16,8 +16,8 @@ import {
   signInWithGooglePopup,
   logInUserWithEmailAndPassword,
   createAuthUserWithEmailAndPassword,
+  createUserDocumentFromAuth,
 } from "../../utils/firebase/firebase.utils";
-import { createUserDocumentFromAuth } from "../../utils/firebase/firestore-db.utils";
 
 export function* getSnapshotFromUserAuth(userAuth, additionalDetails) {
   try {
